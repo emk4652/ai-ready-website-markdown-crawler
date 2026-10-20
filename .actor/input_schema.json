@@ -1,0 +1,33 @@
+{
+  "title": "AI-Ready Website to Markdown & RAG Crawler Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "List of web pages or documentation entry points to convert into clean Markdown.",
+      "editor": "stringList",
+      "default": [
+        "https://docs.apify.com/platform/actors"
+      ]
+    },
+    "maxPages": {
+      "title": "Maximum Pages to Crawl",
+      "type": "integer",
+      "description": "Maximum number of internal pages to crawl and convert.",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 200
+    },
+    "chunkSizeTokens": {
+      "title": "Target RAG Chunk Size (Tokens)",
+      "type": "integer",
+      "description": "Target token ceiling per semantic chunk for vector database ingestion (Pinecone, Qdrant, Weaviate, pgvector).",
+      "default": 512,
+      "minimum": 128,
+      "maximum": 4096
+    }
+  },
+  "required": ["startUrls"]
+}

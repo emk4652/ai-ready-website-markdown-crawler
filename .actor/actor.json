@@ -1,0 +1,35 @@
+{
+  "actorSpecification": 1,
+  "name": "ai-ready-website-markdown-crawler",
+  "title": "AI-Ready Website to Clean Markdown & RAG Chunk Crawler",
+  "description": "Converts any website, documentation portal, or knowledge base into clean LLM-ready Markdown, estimates token counts, and splits content into semantic RAG chunks for vector databases and AI agents.",
+  "version": "1.0.0",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "LLM Markdown & RAG Chunks Dataset",
+      "views": {
+        "overview": {
+          "title": "Markdown & Token Overview",
+          "transformation": {
+            "fields": [
+              "url",
+              "title",
+              "estimatedTokens",
+              "wordCount",
+              "chunksCount",
+              "markdown"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}
